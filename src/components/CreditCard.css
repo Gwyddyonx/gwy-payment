@@ -1,0 +1,308 @@
+/* Credit card */
+.credit-card {
+  width: 400px;
+  height: 250px;
+  border-radius: 20px;
+
+  &.small {
+    width: 240px;
+    height: 150px;
+  }
+
+  &.large {
+    width: 600px;
+    height: 450px;
+  }
+
+  &:hover .flip {
+    transform: rotateY(180deg);
+  }
+}
+
+/* only back card!!!*/
+/*.flip {
+    transform: rotateY(180deg);
+  }*/
+
+.flip {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.front-card,
+.back-card {
+  width: 400px;
+  height: 250px;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+  background-color: #3498db;
+  border-radius: 20px;
+
+  &.small {
+    width: 240px;
+    height: 150px;
+    border-radius: 12px;
+  }
+
+  &.large {
+    width: 600px;
+    height: 450px;
+    border-radius: 12px;
+  }
+}
+
+.front-card {
+  background-image: linear-gradient(to right, #111, #555);
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back-card {
+  transform: rotateY(180deg);
+  color: #ffffff;
+  background-image: linear-gradient(to right, #9e9e9e, #646464)
+}
+
+.back-card .logo {
+  top: 185px;
+
+  &.small {
+    top: 111px;
+  }
+
+  &.large {
+    top: 185px;
+  }
+}
+
+.chip {
+  position: absolute;
+  width: 60px;
+  height: 45px;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, hsl(269, 54%, 87%) 0%, hsl(200, 64%, 89%) 44%, hsl(18, 55%, 94%) 100%);
+  border-radius: 8px;
+
+  &.small {
+    width: 36px;
+    height: 27px;
+    top: 12px;
+    left: 12px;
+    border-radius: 5px;
+  }
+
+  &.large {
+    width: 60px;
+    height: 45px;
+    top: 20px;
+    left: 20px;
+    border-radius: 8px;
+  }
+}
+
+.chip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 4px solid hsla(0, 0%, 0%, 0.1);
+  width: 80%;
+  height: 70%;
+  border-radius: 5px;
+
+  &.small {
+    border-radius: 3px;
+  }
+
+  &.large {
+    border-radius: 5px;
+  }
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+
+  &.small {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    border-radius: 3px;
+  }
+
+  &.large {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    border-radius: 5px;
+  }
+}
+
+.logo img {
+  max-width: 100%;
+  object-fit: contain;
+  max-height: 100%;
+}
+
+.number {
+  font-family: 'Source Code Pro', monospace;
+  position: absolute;
+  margin: 0 auto;
+  top: 103px;
+  left: 19px;
+  font-size: 34px;
+
+  &.small {
+    top: 62px;
+    left: 11px;
+    font-size: 20px;
+  }
+
+  &.large {
+    top: 103px;
+    left: 19px;
+    font-size: 34px;
+  }
+}
+
+.card-holder,
+.card-expiration-date {
+  position: absolute;
+  margin: 0 auto;
+  top: 180px;
+  left: 19px;
+  font-size: 22px;
+  text-transform: capitalize;
+
+  &.small {
+    top: 108px;
+    left: 11px;
+    font-size: 13px;
+  }
+
+  &.large {
+    top: 180px;
+    left: 19px;
+    font-size: 22px;
+  }
+}
+
+.card-holder label,
+.card-expiration-date label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-shadow: none;
+  text-transform: uppercase;
+  font-weight: normal;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 3px;
+
+  &.small {
+    font-size: 6px;
+    margin-bottom: 2px;
+  }
+
+  &.large {
+    font-size: 10px;
+    margin-bottom: 3px;
+  }
+}
+
+.card-expiration-date {
+  text-align: right;
+  left: auto;
+  right: 20px;
+
+  &.small {
+    right: 12px;
+  }
+
+  &.large {
+    right: 20px;
+  }
+}
+
+.ccv {
+  height: 36px;
+  background: #fff;
+  width: 91%;
+  border-radius: 5px;
+  top: 110px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  color: #000;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  &.small {
+    height: 22px;
+    top: 66px;
+    border-radius: 3px;
+  }
+
+  &.large {
+    height: 36px;
+    top: 110px;
+    border-radius: 3px;
+  }
+}
+
+.label-ccv {
+  position: absolute;
+  top: 95px;
+  right: 20px;
+  font-size: 10px;
+  opacity: 0.5;
+
+  &.small {
+    top: 57px;
+    right: 12px;
+    font-size: 6px;
+  }
+
+  &.large {
+    top: 95px;
+    right: 20px;
+    font-size: 10px;
+  }
+}
+
+.ccv div {
+  margin-right: 10px;
+  font-family: Inconsolata;
+}
+
+.strip {
+  background: linear-gradient(135deg, rgb(64, 64, 64), rgb(26, 26, 26));
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  top: 30px;
+  left: 0;
+
+  &.small {
+    height: 30px;
+    top: 18px;
+  }
+
+  &.large {
+    height: 50px;
+    top: 30px;
+  }
+}
