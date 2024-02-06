@@ -7,14 +7,14 @@ export const Main = () => {
     return (
         <div class='main-container'>
             <div class="toolbar">
-                <h1>Gwy Payments</h1>
                 <nav>
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">My Cards</a></li>
                     </ul>
                 </nav>
+                <h1>Gwy Payments</h1>
             </div>
 
             <div class="content">

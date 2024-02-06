@@ -28,14 +28,21 @@ export const MyCards = () => {
                 {
                     "token": "5bc4f1180c46962120abb5b",
                     "franchise": "visa",
-                    "mask": "457562******0326",
+                    "mask": "347762******634",
                     "created": "01/02/2024",
                     "default": false
                 },
                 {
                     "token": "5bc54383eb77b33b2079035",
                     "franchise": "visa",
-                    "mask": "457562******0326",
+                    "mask": "517562******0326",
+                    "created": "01/02/2024",
+                    "default": true
+                },
+                {
+                    "token": "5bc54383eb77b33b2079035",
+                    "franchise": "visa",
+                    "mask": "123456******1234",
                     "created": "01/02/2024",
                     "default": true
                 }
@@ -43,35 +50,20 @@ export const MyCards = () => {
         }
     }
 
-    useEffect(()=>{
-        setCard(creditInfo)
-    })
+    useEffect(() => {
+        setCards(creditInfo.client.cards)
+    }, [])
 
     return (
-        <div class='main-container'>
-            <div class="toolbar">
-                <h1>Gwy Payments</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="my-cards">
+            {
+                cards.map((card, index) => (
+                    <div className='card-container'>
+                        <CreditCard creditCard={card} key={index} size='S' colorCard=''></CreditCard>
+                    </div>
+                ))
+            }
 
-            <div class="content">
-                {
-                    cards.map((card, index) => (
-                        <CreditCard creditCard={card} key={index} size='M'></CreditCard>
-                    ))
-                }
-
-            </div>
-
-            <footer class="footer">
-                <p>&copy; 2024 Gwyddyon. All rights reserved.</p>
-            </footer>
         </div>
     )
 }

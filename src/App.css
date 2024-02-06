@@ -13,7 +13,7 @@ html, body {
 }
 
 .toolbar {
-  background-color: #673ab7;
+  background-color: #0F385A;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -25,6 +25,10 @@ html, body {
   margin: 0;
   margin-left: 10px;
   color: #fff;
+}
+
+nav{
+  margin-left: 30px;
 }
 
 nav ul {
@@ -44,7 +48,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #9575CD;
+  color: #4c545a;
 }
 
 .content {
@@ -62,8 +66,16 @@ nav a:hover {
 }
 
 .footer {
-  background-color: #673ab7;
+  background-color: #0F385A;/*#673ab7;*/
   padding: 10px;
   text-align: center;
   color: #fff;
+}
+
+.my-cards{
+  display: flex;
+}
+
+.card-container{
+  margin: 30px;
 }

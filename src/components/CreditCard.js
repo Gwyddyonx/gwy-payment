@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './CreditCard.css'
 
-export const CreditCard = ({ creditCard, size = 'M' }) => {
+const color = [
+    'red', 'blue', 'black', 'purple', 'green'
+]
 
-    console.log(creditCard)
-    console.log(creditCard.month ?? '' + '/' + creditCard.year ?? '')
+export const CreditCard = ({ creditCard, size = 'M', colorCard }) => {
+
+    const [mainColorCard, setMainColorCard] = useState(() => colorCard || getColor());
 
     function getCard() {
         return creditCard.mask.replace(/(\S{4})/g, '$1 ').trim()
@@ -49,10 +52,15 @@ export const CreditCard = ({ creditCard, size = 'M' }) => {
         }
     };
 
+    function getColor() {
+        var i = Math.floor(Math.random() * color.length);
+        return color[i];
+    }
+
     return (
         <div className={`credit-card ${getSizeClass()}`}>
             <div className={`flip ${getSizeClass()}`}>
-                <div class={`front-card ${getSizeClass()}`}>
+                <div class={`front-card ${getSizeClass()} color-${mainColorCard}`}>
                     <div class={`chip ${getSizeClass()}`}></div>
                     <div class={`logo ${getSizeClass()}`}>
                         <img src={getImageFranchise()}></img>

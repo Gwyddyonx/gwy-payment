@@ -63,6 +63,28 @@
   transform: rotateY(0deg);
 }
 
+.card-black {
+  background-image: linear-gradient(to right, #111, #555);
+}
+
+.color-blue {
+  background-image: linear-gradient(to right, #1a237e, #64b5f6);
+}
+
+.color-purple {
+  background-image: linear-gradient(to right, #4a148c, #9076be);
+  /*background-image: linear-gradient(to right, #480052, #8a009c);*/
+}
+
+.color-green {
+  background-image: linear-gradient(to right, #004d40, #81c784);
+}
+
+.color-red {
+  background-image: linear-gradient(to right, #b71c1c, #ff5252);
+}
+
+
 .back-card {
   transform: rotateY(180deg);
   color: #ffffff;
