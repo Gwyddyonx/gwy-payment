@@ -30,21 +30,24 @@ export const MyCards = () => {
                     "franchise": "visa",
                     "mask": "347762******634",
                     "created": "01/02/2024",
-                    "default": false
+                    "default": false,
+                    "name": "Joe"
                 },
                 {
                     "token": "5bc54383eb77b33b2079035",
                     "franchise": "visa",
                     "mask": "517562******0326",
                     "created": "01/02/2024",
-                    "default": true
+                    "default": true,
+                    "name": "Joe"
                 },
                 {
                     "token": "5bc54383eb77b33b2079035",
                     "franchise": "visa",
                     "mask": "123456******1234",
                     "created": "01/02/2024",
-                    "default": true
+                    "default": true,
+                    "name": "Joe"
                 }
             ]
         }
@@ -55,15 +58,27 @@ export const MyCards = () => {
     }, [])
 
     return (
-        <div class="my-cards">
-            {
-                cards.map((card, index) => (
-                    <div className='card-container'>
-                        <CreditCard creditCard={card} key={index} size='S' colorCard=''></CreditCard>
-                    </div>
-                ))
-            }
-
+        <div >
+            <h2>My Credit Cards</h2>
+            <div className='card-credits'>
+                <div class="my-cards">
+                    {
+                        cards.map((card, index) => (
+                            <div className='card-container'>
+                                <CreditCard creditCard={card} key={index} size='M' colorCard=''></CreditCard>
+                                <div className='card-options'>
+                                    <button disabled={!card.default} className='default-button btn'>Set as default</button>
+                                    <button className='delete-button btn'>Delete</button>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div className='options-container'>
+                    <button className='new-card-button btn'>New card</button>
+                    <button className='save-button btn'>Save</button>
+                </div>
+            </div>
         </div>
     )
 }
