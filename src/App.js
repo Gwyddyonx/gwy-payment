@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
         <Main></Main>
+        <div id="modal-root"></div>
     </div>
   );
 }

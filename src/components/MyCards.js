@@ -1,20 +1,54 @@
 import React, { useEffect, useState } from 'react'
 import { CreditCard } from './CreditCard'
+import Modal from './Modal'
+import Loader from './Loader'
 
 const URI = 'http://localhost:3001/client/5bb09bd801ffa311f002953'
 
 export const MyCards = () => {
     const [cards, setCards] = useState([])
 
+    const [loader, setLoader] = useState([true])
+
+    let userInformatio = {}
+
+    const [newCard, setNewCard] = useState([{}])
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setNewCard(values => ({ ...values, [name]: value }))
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(newCard);
+    }
     /*useEffect(() => {
         fetch(URI)
             .then(results => results.json())
             .then(data => {
+                userInformation = data
+                userInformation.client.cards = userInformation.client.cards.map((card)=>{
+                    card.name = userInformation.client.name
+                })
                 setCards(data.client.cards)
+                setNewCard(values => ({ ...values, ['name']: userInformation.client.name }))
                 //console.log('funciona',data)
             }).catch(error => console.log('error', error))
     }, [])*/
 
+    useEffect(() => {
+        setTimeout(() => {
+            setNewCard(values => ({ ...values, ['name']: 'camilo lopez' }))
+            setLoader(false)
+        }, 1000);
+    }, [])
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
     var creditInfo = {
         "client": {
@@ -59,13 +93,17 @@ export const MyCards = () => {
 
     return (
         <div >
+            {
+                loader ? < Loader /> : ''
+            }
+
             <h2>My Credit Cards</h2>
             <div className='card-credits'>
                 <div class="my-cards">
                     {
                         cards.map((card, index) => (
                             <div className='card-container'>
-                                <CreditCard creditCard={card} key={index} size='M' colorCard=''></CreditCard>
+                                <CreditCard creditCard={card} key={index} size='S' colorCard=''></CreditCard>
                                 <div className='card-options'>
                                     <button disabled={!card.default} className='default-button btn'>Set as default</button>
                                     <button className='delete-button btn'>Delete</button>
@@ -75,10 +113,67 @@ export const MyCards = () => {
                     }
                 </div>
                 <div className='options-container'>
-                    <button className='new-card-button btn'>New card</button>
-                    <button className='save-button btn'>Save</button>
+                    <button className='new-card-button btn' onClick={openModal}>New card</button>
                 </div>
             </div>
+            <Modal isOpen={isModalOpen} onClose={closeModal}>
+                <div className="modal-header">
+                    <h2>New Credit Card</h2>
+                </div>
+                <div className="modal-body">
+                    <CreditCard className='move-card' creditCard={newCard} size='M' colorCard=''></CreditCard>
+
+                    <form className="form-container" onSubmit={handleSubmit}>
+                        <label className="form-label">Number Card:
+                            <input
+                                className="form-input"
+                                type="number"
+                                name="mask"
+                                size="50"
+                                min="1000000000000000"
+                                max="99999999999999999"
+                                value={newCard.mask || ""}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label className="form-label">Month:
+                            <input
+                                className="form-input"
+                                type="number"
+                                name="month"
+                                min="1"
+                                max="12"
+                                value={newCard.month || ""}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label className="form-label">Year:
+                            <input
+                                className="form-input"
+                                type="number"
+                                name="year"
+                                min={new Date().getFullYear()}
+                                max={new Date().getFullYear() + 100}
+                                value={newCard.year || ""}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label className="form-label">CCV:
+                            <input
+                                className="form-input"
+                                type="number"
+                                name="ccv"
+                                min="100"
+                                max="9999"
+                                value={newCard.ccv || ""}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <input className="form-submit" type="submit" value="Submit" />
+                    </form>
+                </div>
+            </Modal>
         </div>
     )
+    /*<!--button className='save-button btn'>Save</button--> */
 }

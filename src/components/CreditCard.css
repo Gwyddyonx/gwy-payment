@@ -11,8 +11,8 @@
   }
 
   &.large {
-    width: 600px;
-    height: 450px;
+    width: 560px;
+    height: 350px;
   }
 
   &:hover .flip {
@@ -52,9 +52,9 @@
   }
 
   &.large {
-    width: 600px;
-    height: 450px;
-    border-radius: 12px;
+    width: 560px;
+    height: 350px;
+    border-radius: 28px;
   }
 }
 
@@ -100,7 +100,7 @@
   }
 
   &.large {
-    top: 185px;
+    top: 260px;
   }
 }
 
@@ -122,11 +122,11 @@
   }
 
   &.large {
-    width: 60px;
-    height: 45px;
-    top: 20px;
-    left: 20px;
-    border-radius: 8px;
+    width: 84px;
+    height: 63px;
+    top: 28px;
+    left: 28px;
+    border-radius:11px;
   }
 }
 
@@ -148,7 +148,7 @@
   }
 
   &.large {
-    border-radius: 5px;
+    border-radius: 7px;
   }
 }
 
@@ -162,14 +162,12 @@
     top: 12px;
     right: 12px;
     width: 36px;
-    border-radius: 3px;
   }
 
   &.large {
-    top: 12px;
-    right: 12px;
-    width: 36px;
-    border-radius: 5px;
+    top: 28px;
+    right: 28px;
+    width: 84px;
   }
 }
 
@@ -194,9 +192,9 @@
   }
 
   &.large {
-    top: 103px;
-    left: 19px;
-    font-size: 34px;
+    top: 144px;
+    left: 26px;
+    font-size: 47px;
   }
 }
 
@@ -216,9 +214,9 @@
   }
 
   &.large {
-    top: 180px;
-    left: 19px;
-    font-size: 22px;
+    top: 252px;
+    left: 26px;
+    font-size: 31px;
   }
 }
 
@@ -239,8 +237,8 @@
   }
 
   &.large {
-    font-size: 10px;
-    margin-bottom: 3px;
+    font-size: 14px;
+    margin-bottom: 4.3px;
   }
 }
 
@@ -254,7 +252,7 @@
   }
 
   &.large {
-    right: 20px;
+    right: 28px;
   }
 }
 
@@ -280,9 +278,9 @@
   }
 
   &.large {
-    height: 36px;
-    top: 110px;
-    border-radius: 3px;
+    height: 50.4px;
+    top: 154px;
+    border-radius: 7px;
   }
 }
 
@@ -300,9 +298,9 @@
   }
 
   &.large {
-    top: 95px;
-    right: 20px;
-    font-size: 10px;
+    top: 133px;
+    right: 28px;
+    font-size: 14px;
   }
 }
 
@@ -325,7 +323,7 @@
   }
 
   &.large {
-    height: 50px;
-    top: 30px;
+    height: 70px;
+    top: 42px;
   }
 }

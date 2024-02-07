@@ -10,6 +10,7 @@ export const CreditCard = ({ creditCard, size = 'M', colorCard }) => {
     const [mainColorCard, setMainColorCard] = useState(() => colorCard || getColor());
 
     function getCard() {
+        if(creditCard.mask == undefined|| creditCard.mask == null) return ''
         return creditCard.mask.replace(/(\S{4})/g, '$1 ').trim()
     }
 
@@ -72,7 +73,7 @@ export const CreditCard = ({ creditCard, size = 'M', colorCard }) => {
                     </div>
                     <div class={`card-expiration-date ${getSizeClass()}`}>
                         <label>Expires</label>
-                        <div>{creditCard.month ?? 'MM' + '/' + (creditCard.year ?? 'YY')}</div>
+                        <div>{(creditCard.month ?? 'MM') + '/' + (creditCard.year ?? 'YYYY')}</div>
                     </div>
                 </div>
                 <div class={`back-card ${getSizeClass()}`}>
