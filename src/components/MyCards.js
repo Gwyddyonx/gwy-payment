@@ -169,7 +169,7 @@ export const MyCards = () => {
                                 onChange={handleChange}
                             />
                         </label>
-                        <input className="form-submit" type="submit" value="Submit" />
+                        <input className="btn" type="submit" value="Submit" />
                     </form>
                 </div>
             </Modal>
