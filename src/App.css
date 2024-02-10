@@ -106,7 +106,7 @@ nav a:hover {
   position: relative;
 }
 
-.btn{
+.btn {
   min-width: 100px;
   min-height: 30px;
   background: #2e6da4;
@@ -115,7 +115,7 @@ nav a:hover {
   border-radius: 4px;
 }
 
-.btn-w{
+.btn-w {
   min-width: 100px;
   min-height: 30px;
   background: #fff;
@@ -124,13 +124,13 @@ nav a:hover {
   border-radius: 4px;
 }
 
-.btn:hover{
+.btn:hover {
   cursor: pointer;
   opacity: 0.8;
   color: #e4e4e4;
 }
 
-.default-button{
+.default-button {
   width: 30%;
   margin: 10px;
   display: block;
@@ -138,13 +138,13 @@ nav a:hover {
 }
 
 .default-button:disabled,
-.default-button[disabled]{
+.default-button[disabled] {
   background-color: #cccccc;
   color: #666666;
   cursor: default;
 }
 
-.delete-button{
+.delete-button {
   background: #E4E6EB;
   width: 30%;
   margin: 10px;
@@ -153,27 +153,27 @@ nav a:hover {
   color: #333333;
 }
 
-.delete-button:hover{
+.delete-button:hover {
   background: #bec0c5;
   color: #000000;
 }
 
-.card-options{
+.card-options {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
 }
 
 
-.new-card-button{
+.new-card-button {
   margin: 20px;
 }
 
-.save-button{
+.save-button {
   margin: 20px;
 }
 
-.options-container{
+.options-container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -208,9 +208,18 @@ nav a:hover {
   text-align: center;
 }
 
-.modal-body {
-}
+.modal-body {}
 
 .move-card {
   margin-bottom: 20px;
+}
+
+.delete-card-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.delete-card-options button {
+  margin: 0px 0px 0px 20px;
 }

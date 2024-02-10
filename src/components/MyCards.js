@@ -6,13 +6,21 @@ import Loader from './Loader'
 const URI = 'http://localhost:3001/client/5bb09bd801ffa311f002953'
 
 export const MyCards = () => {
-    const [cards, setCards] = useState([])
 
+    const [cards, setCards] = useState([])
     const [loader, setLoader] = useState([true])
+    const [newCard, setNewCard] = useState([{}])
+    // new Card Modal
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
+    // delete Card Modal
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+    const openDeleteModal = () => setIsDeleteModalOpen(true);
+    const closeDeleteModal = () => setIsDeleteModalOpen(false);
 
     let userInformatio = {}
-
-    const [newCard, setNewCard] = useState([{}])
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -45,10 +53,7 @@ export const MyCards = () => {
         }, 1000);
     }, [])
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
 
     var creditInfo = {
         "client": {
@@ -106,7 +111,7 @@ export const MyCards = () => {
                                 <CreditCard creditCard={card} key={index} size='S' colorCard=''></CreditCard>
                                 <div className='card-options'>
                                     <button disabled={!card.default} className='default-button btn'>Set as default</button>
-                                    <button className='delete-button btn'>Delete</button>
+                                    <button className='delete-button btn' onClick={openDeleteModal}>Delete</button>
                                 </div>
                             </div>
                         ))
@@ -171,6 +176,16 @@ export const MyCards = () => {
                         </label>
                         <input className="btn" type="submit" value="Submit" />
                     </form>
+                </div>
+            </Modal>
+            <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
+                <div className="modal-header">
+                    <h2>Are you sure you want to delete the credit card?</h2>
+                </div>
+                <div className="modal-body">
+                    <div className='delete-card-options'>
+                    <button className='btn'>Delete</button>
+                    </div>
                 </div>
             </Modal>
         </div>
